@@ -1,5 +1,7 @@
 package exercices.stream;
 
+import java.util.Arrays;
+
 /*
  ** Consigne **
  *
@@ -13,8 +15,8 @@ package exercices.stream;
 public class Exo2 {
 
     public static void main(String[] args) {
-//        int value = getTotalNumberOfLettersOfNamesLongerThanFive("william", "jones", "aaron", "seppe", "frank", "gilliam");
-//        System.out.println(value);
+        long value = getTotalNumberOfLettersOfNamesLongerThanFive("william", "jones", "aaron", "seppe", "frank", "gilliam");
+        System.out.println(value);
         long value2 = getTotalNumberOfLettersOfNamesLongerThanFiveWithStream("william", "jones", "aaron", "seppe", "frank", "gilliam");
         System.out.println(value2);
     }
@@ -33,8 +35,9 @@ public class Exo2 {
     }
 
     // TODO
+
     public static long getTotalNumberOfLettersOfNamesLongerThanFiveWithStream(String... names) {
-        return 0;
+        return Arrays.stream(names).filter(name -> name.length()>5).mapToInt(String::length).sum();
     }
 }
 

@@ -1,7 +1,11 @@
 package exercices.stream;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /*
  ** Consigne **
@@ -28,8 +32,9 @@ class Exo1 {
     }
 
     public static Collection<String> mapToUppercaseWithStream(String... names) {
-        // TODO
-        return new ArrayList<>();
+        return Arrays.stream(names) // Conversion de la collection en Stream
+                .map(String::toUpperCase) // Conversion de chaque élément en majuscules
+                .collect(toList()); // Collecte des resultats dans une nouvelle liste
     }
 
 }
